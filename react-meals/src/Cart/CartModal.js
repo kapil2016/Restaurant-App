@@ -1,9 +1,15 @@
 import classes from "./CartModal.module.css";
 import ReactDOM from "react-dom";
-
+import { useContext } from "react";
+import CartContext from "../Contexts/CartModalContext";
 const target = document.getElementById("cartmodal");
 
 const Modal = () => {
+const ModalState = useContext(CartContext);
+const buttonClickHandler = () => {
+    ModalState.setVisibility(false);
+  };
+
   return (
     <div className={classes.backdrop}>
       <div className={classes.modal}>
@@ -13,7 +19,7 @@ const Modal = () => {
           <span>35.62</span>
         </div>
         <div className={classes.actions}>
-          <button> Close</button>
+          <button onClick={buttonClickHandler}> Close</button>
           <button className={classes.button}> Order</button>
         </div>
       </div>
@@ -21,7 +27,7 @@ const Modal = () => {
   );
 };
 const CartModal = (props) => {
-  return <>{ReactDOM.createPortal(<Modal />, target)}</>;
+  return <>{props.visibility && ReactDOM.createPortal(<Modal />, target)}</>;
 };
 
 export default CartModal;
