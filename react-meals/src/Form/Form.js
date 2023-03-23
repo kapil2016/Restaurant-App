@@ -7,9 +7,11 @@ const Form = (props) => {
            Amount
         </label>
         <input
-          type="number"
-          value="1"
+          type='number'
+          value={props.value}
           id={props.id}
+          onChange={props.onChange}
+          
         ></input>
       </div>
       <button  id={props.id}>
