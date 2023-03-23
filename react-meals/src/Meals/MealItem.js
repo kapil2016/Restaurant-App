@@ -1,4 +1,5 @@
 import classes from './MealItem.module.css'
+import Form from '../Form/Form';
 const MealItem = (props)=>{
     return (
        <section className={classes.meal}>
@@ -7,6 +8,8 @@ const MealItem = (props)=>{
             <div className={classes.description}>{props.Item.description}</div>
             <div className={classes.price}>{props.Item.price}</div>
             </div>
+            <Form></Form>
+
         </section>
     )
 }
