@@ -7,14 +7,25 @@ import { useState } from "react";
 
 
 function App() {
-  const [modalVisibility , setModalVisibility] = useState(false);
- const ModalState ={setVisibility:(getVisibility)=>{
-  setModalVisibility(getVisibility)
- }}
+ const [orderList , setOrderList] = useState([])
+ const [modalVisibility , setModalVisibility] = useState(false);
+
+const ctxObject = {
+  isVisable: modalVisibility,
+  orderList: orderList,
+  Orders:(value)=>{
+    setOrderList(value)
+   },
+  setVisibility:(getVisibility)=>{
+    setModalVisibility(getVisibility)
+   }
+}
+console.log(orderList)
+console.log('from app component')
   return (
-    <CartContext.Provider value={ModalState}>
+    <CartContext.Provider value={ctxObject}>
     <div>
-      <CartModal visibility={modalVisibility}></CartModal>
+      <CartModal visibility={modalVisibility} orders ={orderList}></CartModal>
       <Header></Header>
       <main>
         <MealsSummary></MealsSummary>
