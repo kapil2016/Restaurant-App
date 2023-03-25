@@ -20,8 +20,7 @@ const ctxObject = {
     setModalVisibility(getVisibility)
    }
 }
-console.log(orderList)
-console.log('from app component')
+
   return (
     <CartContext.Provider value={ctxObject}>
     <div>

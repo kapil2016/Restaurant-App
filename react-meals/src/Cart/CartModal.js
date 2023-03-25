@@ -12,7 +12,7 @@ const Modal = (props) => {
     ctx.setVisibility(false);
   };
   const CartItemList = props.orderList.map((item)=>{
-   return <CartItem key = {item.id} price = {item.price} count = {item.count} name = {item.name}></CartItem> 
+   return <CartItem key = {item.id} price = {item.price} count = {item.count} name = {item.name} id= {item.id} ></CartItem> 
 
   })
   let totalAmount = 0 ;
@@ -26,7 +26,7 @@ const Modal = (props) => {
           {CartItemList}
         <div className={classes.total}>
           <span>Total Amount</span>
-          <span>{totalAmount}</span>
+          <span>{`$ ${totalAmount}`}</span>
         </div>
         <div className={classes.actions}>
           <button onClick={buttonClickHandler}> Close</button>
