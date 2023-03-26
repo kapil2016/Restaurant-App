@@ -13,8 +13,10 @@ const CartItem = (props) => {
       if (orderList[i].id === props.id) {
         if (orderList[i].count > 1) {
           orderList[i].count -= 1;
+          break;
         } else {
           orderList.splice(i, 1);
+          break;
         }
       }
     }

@@ -31,7 +31,6 @@ const MealItem = (props) => {
         }
       }
     }
-    console.log(orderList)
     ctx.Orders(orderList)
   };
   return (

@@ -17,20 +17,23 @@ const Modal = (props) => {
   })
   let totalAmount = 0 ;
   props.orderList.forEach(item => {
-    totalAmount = totalAmount + parseInt(item.price)*parseInt(item.count);
+    totalAmount = totalAmount + item.price*item.count;
   });
-
+  totalAmount = totalAmount.toFixed(2);
   return (
     <div className={classes.backdrop}>
       <div className={classes.modal}>
-          {CartItemList}
+        <div className={classes['cart-items']}>
+        {CartItemList}
+        </div>
+          
         <div className={classes.total}>
           <span>Total Amount</span>
           <span>{`$ ${totalAmount}`}</span>
         </div>
         <div className={classes.actions}>
           <button onClick={buttonClickHandler}> Close</button>
-          <button className={classes.button}> Order</button>
+          {totalAmount > 0 && <button className={classes.button}> Order</button>}
         </div>
       </div>
     </div>
